@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
             if (price != null && weight != null) {
                 val result = price.toDouble() / weight.toDouble() * 1000
                 binding.result.text = "${result.roundToInt()} руб/кг"
-                binding.result2.text = "Точная цена ${String.format("%.3f", result).toDouble()} руб/кг"
+                //binding.result2.text = "$result руб/кг"
+                binding.result2.text = "Точная цена ${String.format("%.3f", result)} руб/кг"
                 Toast.makeText(this, "Посчитано!", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Ошибка!", Toast.LENGTH_SHORT).show()
@@ -37,6 +38,3 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
-
-//number3digits:Double = String.format("%.3f", number).toDouble()
-//String.format("%.3f", result).toDouble()
