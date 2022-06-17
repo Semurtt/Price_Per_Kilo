@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
+import com.google.android.material.snackbar.Snackbar
 import price.per.kilo.databinding.ActivityMainBinding
 import kotlin.math.roundToInt
 
@@ -53,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.clear.setOnClickListener {
+            Snackbar.make(it, "Сброшено!", Snackbar.LENGTH_SHORT).show()
             binding.price.text = null
             binding.weight.text = null
             binding.result.text = ""
@@ -61,14 +63,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
-/*
-emailEditText.doOnTextChanged { text, _, _, _ ->
-    if (isEmailValid(text)) {
-        emailTextInputLayout.hint = "Молодец!"
-        emailTextInputLayout.isErrorEnabled = false
-    } else {
-        emailTextInputLayout.hint = "Не более 10 символов"
-        emailTextInputLayout.error = "Некорректный Email"
-        emailTextInputLayout.isErrorEnabled = true
-    }
-}*/
+
