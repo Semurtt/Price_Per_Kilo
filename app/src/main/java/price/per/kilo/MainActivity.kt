@@ -2,10 +2,8 @@ package price.per.kilo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import price.per.kilo.databinding.ActivityMainBinding
 import kotlin.math.roundToInt
 
@@ -21,7 +19,6 @@ class MainActivity : AppCompatActivity() {
             if (price != null && weight != null) {
                 val result = price.toDouble() / weight.toDouble() * 1000
                 binding.result.text = "${result.roundToInt()} руб/кг"
-                //binding.result2.text = "$result руб/кг"
                 binding.result2.text = "Точная цена ${String.format("%.3f", result)} руб/кг"
                 Toast.makeText(this, "Посчитано!", Toast.LENGTH_SHORT).show()
             } else {
@@ -29,12 +26,49 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        binding.price.doOnTextChanged { text, _, _, _ ->
+            if (text != null) {
+                if (text.length < 7) {
+                    binding.priceField.hint = "Введите цену товара, указанную на ценнике"
+                    binding.priceField.isErrorEnabled = false
+                } else {
+                    binding.priceField.hint = "Квартиру что ли покупаем?"
+                    binding.priceField.error = "Цифр поменьше набирайте!"
+                    binding.priceField.isErrorEnabled = true
+                }
+            }
+        }
+
+        binding.weight.doOnTextChanged { text, _, _, _ ->
+            if (text != null) {
+                if (text.length < 7) {
+                    binding.weightField.hint = "Введите вес в граммах c товара"
+                    binding.weightField.isErrorEnabled = false
+                } else {
+                    binding.weightField.hint = "Холодильник взвешиваем?"
+                    binding.weightField.error = "Мы это сами не унесём!"
+                    binding.weightField.isErrorEnabled = true
+                }
+            }
+        }
+
         binding.clear.setOnClickListener {
-            binding.price.text.clear()
-            binding.weight.text.clear()
+            binding.price.text = null
+            binding.weight.text = null
             binding.result.text = ""
             binding.result2.text = ""
         }
 
     }
 }
+/*
+emailEditText.doOnTextChanged { text, _, _, _ ->
+    if (isEmailValid(text)) {
+        emailTextInputLayout.hint = "Молодец!"
+        emailTextInputLayout.isErrorEnabled = false
+    } else {
+        emailTextInputLayout.hint = "Не более 10 символов"
+        emailTextInputLayout.error = "Некорректный Email"
+        emailTextInputLayout.isErrorEnabled = true
+    }
+}*/
