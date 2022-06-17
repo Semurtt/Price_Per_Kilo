@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.clear.setOnClickListener {
-            Snackbar.make(it, "Сброшено!", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(it, "Сброшено!", Snackbar.LENGTH_SHORT).setTextColor(0XFF0277BD.toInt()).setBackgroundTint(0XFF81C784.toInt()).show()
             binding.price.text = null
             binding.weight.text = null
             binding.result.text = ""
