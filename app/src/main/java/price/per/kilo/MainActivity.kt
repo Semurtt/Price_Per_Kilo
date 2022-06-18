@@ -25,8 +25,11 @@ class MainActivity : AppCompatActivity() {
             val weight = binding.weight.text.toString().toIntOrNull()
             if (price != null && weight != null) {
                 val result = price.toDouble() / weight.toDouble() * 1000
-                binding.result.text = "${result.roundToInt()} руб/кг"
-                binding.result2.text = "Точная цена ${String.format("%.3f", result)} руб/кг"
+                //binding.result.text = "${result.roundToInt()} руб/кг"
+                binding.result.text = getString(R.string.resultText, result.roundToInt())
+                //binding.result2.text = "Точная цена ${String.format("%.3f", result)} руб/кг"
+                binding.result2.text =
+                    getString(R.string.result2Text, String.format("%.3f", result))
                 history.add(
                     0,
                     "Цена ${binding.price.text}р за ${binding.weight.text}гр равна ${binding.result.text}"

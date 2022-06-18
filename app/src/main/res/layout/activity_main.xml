@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="40dp"
-        android:hint="Введите цену"
+        android:hint="@string/priceField"
         app:counterEnabled="true"
         app:counterMaxLength="7"
         app:endIconMode="clear_text"
@@ -25,7 +25,8 @@
             android:id="@+id/price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned" />
+            android:inputType="numberSigned"
+            android:textColorHint="#616161" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -35,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="28dp"
-        android:hint="Введите вес в граммах"
+        android:hint="@string/weightField"
         app:counterEnabled="true"
         app:counterMaxLength="7"
         app:endIconMode="clear_text"
@@ -48,7 +49,8 @@
             android:id="@+id/weight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned" />
+            android:inputType="numberSigned"
+            android:textColorHint="#616161" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Посчитать"
+        android:text="@string/calculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
-        android:text="Цена за килограмм"
+        android:text="@string/result"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -81,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Точная цена"
+        android:text="@string/result2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +95,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:backgroundTint="@color/red"
-        android:text="Сбросить"
+        android:text="@string/clear"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,34 +106,31 @@
         android:id="@+id/firstHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:layout_marginStart="20dp"
-        android:text="Первый запомненый результат"
+        android:layout_marginTop="12dp"
+        android:text="@string/firstHistory"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clear"
-        />
+        app:layout_constraintTop_toBottomOf="@id/clear" />
 
     <TextView
         android:id="@+id/secondHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:layout_marginStart="20dp"
-        android:text="Второй запомненый результат"
+        android:layout_marginTop="12dp"
+        android:text="@string/secondHistory"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/firstHistory"
-        />
+        app:layout_constraintTop_toBottomOf="@id/firstHistory" />
+
     <TextView
         android:id="@+id/thirdHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:layout_marginStart="20dp"
-        android:text="Третий запомненый результат"
+        android:layout_marginTop="12dp"
+        android:text="@string/thirdHistory"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/secondHistory"
-        />
-
+        app:layout_constraintTop_toBottomOf="@id/secondHistory" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

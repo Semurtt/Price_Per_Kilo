@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Цена килограмма</string>
+    <string name="priceField">Введите цену</string>
+    <string name="weightField">Введите вес в граммах</string>
+    <string name="calculate">Посчитать</string>
+    <string name="result">Цена за килограмм</string>
+    <string name="result2">Точная цена</string>
+    <string name="clear">Сбросить</string>
+    <string name="firstHistory">Первый запомненый результат</string>
+    <string name="secondHistory">Второй запомненый результат</string>
+    <string name="thirdHistory">Третий запомненый результат</string>
+    <string name="resultText">%1$d руб/кг</string>
+    <string name="result2Text">Точная цена %1$s руб/кг</string>
+</resources>

@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">Цена килограмма</string>
+    <string name="app_name">Price per kilo</string>
+    <string name="priceField">Enter price</string>
+    <string name="weightField">Enter weight in grams</string>
+    <string name="calculate">Calculate</string>
+    <string name="result">"Price per kilo "</string>
+    <string name="result2">Exact value</string>
+    <string name="clear">Clear</string>
+    <string name="firstHistory">First history result</string>
+    <string name="secondHistory">Second history result</string>
+    <string name="thirdHistory">Third history result</string>
+    <string name="resultText">%1$d rub/kg</string>
+    <string name="result2Text">Exact value %1$s rub/kg</string>
 </resources>
