@@ -14,6 +14,12 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val history = mutableListOf(
+            "История первого расчета",
+            "История второго расчета",
+            "История третьего расчета"
+        )
+
         binding.calculate.setOnClickListener {
             val price = binding.price.text.toString().toIntOrNull()
             val weight = binding.weight.text.toString().toIntOrNull()
@@ -21,6 +27,14 @@ class MainActivity : AppCompatActivity() {
                 val result = price.toDouble() / weight.toDouble() * 1000
                 binding.result.text = "${result.roundToInt()} руб/кг"
                 binding.result2.text = "Точная цена ${String.format("%.3f", result)} руб/кг"
+                history.add(
+                    0,
+                    "Цена ${binding.price.text}р за ${binding.weight.text}гр равна ${binding.result.text}"
+                )
+                if (history.size > 3) history.removeLast()
+                binding.firstHistory.text = history[0]
+                binding.secondHistory.text = history[1]
+                binding.thirdHistory.text = history[2]
                 Toast.makeText(this, "Посчитано!", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Ошибка!", Toast.LENGTH_SHORT).show()
@@ -46,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                     binding.weightField.hint = "Введите вес в граммах c товара"
                     binding.weightField.isErrorEnabled = false
                 } else {
-                    binding.weightField.hint = "Холодильник взвешиваем?"
+                    binding.weightField.hint = "Пора заказывать Белаз!"
                     binding.weightField.error = "Мы это сами не унесём!"
                     binding.weightField.isErrorEnabled = true
                 }
@@ -54,11 +68,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.clear.setOnClickListener {
-            Snackbar.make(it, "Сброшено!", Snackbar.LENGTH_SHORT).setTextColor(0XFF0277BD.toInt()).setBackgroundTint(0XFF81C784.toInt()).show()
+            Snackbar.make(it, "Сброшено!", Snackbar.LENGTH_SHORT).setTextColor(0XFFFF0000.toInt())
+                .setBackgroundTint(0XFF0277BD.toInt()).show()
             binding.price.text = null
             binding.weight.text = null
-            binding.result.text = ""
-            binding.result2.text = ""
+            binding.result.text = "Цена за килограмм"
+            binding.result2.text = "Точная цена"
         }
 
     }
