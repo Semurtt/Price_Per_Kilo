@@ -7,9 +7,12 @@
     <string name="result">Цена за килограмм</string>
     <string name="result2">Точная цена</string>
     <string name="clear">Сбросить</string>
-    <string name="firstHistory">Первый запомненый результат</string>
-    <string name="secondHistory">Второй запомненый результат</string>
-    <string name="thirdHistory">Третий запомненый результат</string>
+    <string name="firstHistory">Первый зафиксированный результат</string>
+    <string name="secondHistory">Второй зафиксированный результат</string>
+    <string name="thirdHistory">Третий зафиксированный результат</string>
+    <string name="fourthHistory">Четвертый зафиксированный результат</string>
+    <string name="fifthHistory">Пятый зафиксированный результат</string>
     <string name="resultText">%1$d руб/кг</string>
     <string name="result2Text">Точная цена %1$s руб/кг</string>
+    <string name="clearHistory">Очистить историю</string>
 </resources>

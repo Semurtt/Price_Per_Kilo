@@ -15,10 +15,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val history = mutableListOf(
-            "История первого расчета",
-            "История второго расчета",
-            "История третьего расчета"
+            "История будущего расчета",
+            "История будущего расчета",
+            "История будущего расчета", "История будущего расчета", "История будущего расчета"
         )
+
+        fun fillHistory() {
+            binding.firstHistory.text = history[0]
+            binding.secondHistory.text = history[1]
+            binding.thirdHistory.text = history[2]
+            binding.fourthHistory.text = history[3]
+            binding.fifthHistory.text = history[4]
+        }
 
         binding.calculate.setOnClickListener {
             val price = binding.price.text.toString().toIntOrNull()
@@ -34,10 +42,8 @@ class MainActivity : AppCompatActivity() {
                     0,
                     "Цена ${binding.price.text}р за ${binding.weight.text}гр равна ${binding.result.text}"
                 )
-                if (history.size > 3) history.removeLast()
-                binding.firstHistory.text = history[0]
-                binding.secondHistory.text = history[1]
-                binding.thirdHistory.text = history[2]
+                if (history.size > 5) history.removeLast()
+                fillHistory()
                 Toast.makeText(this, "Посчитано!", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Ошибка!", Toast.LENGTH_SHORT).show()
@@ -77,6 +83,14 @@ class MainActivity : AppCompatActivity() {
             binding.weight.text = null
             binding.result.text = "Цена за килограмм"
             binding.result2.text = "Точная цена"
+        }
+
+        binding.clearHistory.setOnClickListener {
+            Snackbar.make(it, "История расчетов очищена!", Snackbar.LENGTH_SHORT)
+                .setTextColor(0XFFFF0000.toInt())
+                .setBackgroundTint(0XFF0277BD.toInt()).show()
+            for (i in history.indices) history[i] = "История будущего расчета"
+            fillHistory()
         }
 
     }

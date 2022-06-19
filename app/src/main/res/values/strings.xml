@@ -9,6 +9,9 @@
     <string name="firstHistory">First history result</string>
     <string name="secondHistory">Second history result</string>
     <string name="thirdHistory">Third history result</string>
+    <string name="fourthHistory">Fourth history result</string>
+    <string name="fifthHistory">Fifth history result</string>
     <string name="resultText">%1$d rub/kg</string>
     <string name="result2Text">Exact value %1$s rub/kg</string>
+    <string name="clearHistory">Clear history</string>
 </resources>
