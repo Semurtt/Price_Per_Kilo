@@ -1,8 +1,12 @@
 package price.per.kilo
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.snackbar.Snackbar
 import price.per.kilo.databinding.ActivityMainBinding
@@ -14,13 +18,7 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val history = mutableListOf(
-            "История будущего расчета",
-            "История будущего расчета",
-            "История будущего расчета",
-            "История будущего расчета",
-            "История будущего расчета"
-        )
+        val history = mutableListOf("", "", "", "", "")
 
         fun fillHistory() {
             binding.firstHistory.text = history[0]
@@ -33,16 +31,17 @@ class MainActivity : AppCompatActivity() {
         binding.calculate.setOnClickListener {
             val price = binding.price.text.toString().toIntOrNull()
             val weight = binding.weight.text.toString().toIntOrNull()
-            if (price != null && weight != null) {
+            if (price != null && weight != null && price != 0 && weight != 0) {
                 val result = price.toDouble() / weight.toDouble() * 1000
                 //binding.result.text = "${result.roundToInt()} руб/кг"
                 binding.result.text = getString(R.string.resultText, result.roundToInt())
                 //binding.result2.text = "Точная цена ${String.format("%.3f", result)} руб/кг"
                 binding.result2.text =
                     getString(R.string.result2Text, String.format("%.3f", result))
+                binding.clearHistory.isVisible = true
                 history.add(
                     0,
-                    "Цена ${binding.price.text}р за ${binding.weight.text}гр равна ${binding.result.text}"
+                    "Цена ${binding.price.text}р за ${binding.weight.text}г равна ${binding.result.text}"
                 )
                 if (history.size > 5) history.removeLast()
                 fillHistory()
@@ -79,8 +78,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.clear.setOnClickListener {
-            Snackbar.make(it, "Сброшено!", Snackbar.LENGTH_SHORT).setTextColor(0XFFFF0000.toInt())
-                .setBackgroundTint(0XFF0277BD.toInt()).show()
+            Snackbar.make(it, "Сброшено!", Snackbar.LENGTH_SHORT).setTextColor(0XFF92d050.toInt())
+                .setBackgroundTint(0XFF203764.toInt()).show()
             binding.price.text = null
             binding.weight.text = null
             binding.result.text = "Цена за килограмм"
@@ -88,11 +87,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.clearHistory.setOnClickListener {
+            binding.clearHistory.isVisible = false
             Snackbar.make(it, "История расчетов очищена!", Snackbar.LENGTH_SHORT)
-                .setTextColor(0XFFFF0000.toInt())
-                .setBackgroundTint(0XFF0277BD.toInt()).show()
-            for (i in history.indices) history[i] = "История будущего расчета"
+                .setTextColor(0XFF92d050.toInt())
+                .setBackgroundTint(0XFF203764.toInt()).show()
+            for (i in history.indices) history[i] = ""
             fillHistory()
+        }
+
+        binding.switchTheme.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
         }
 
     }

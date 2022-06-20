@@ -89,18 +89,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/result" />
 
-    <Button
+    <ImageButton
         android:id="@+id/clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/red"
-        android:text="@string/clear"
-        android:textColor="#000000"
+        android:layout_marginTop="33dp"
+        android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/result2" />
+        app:layout_constraintStart_toEndOf="@id/calculate"
+        app:layout_constraintTop_toBottomOf="@id/weightField"
+        app:srcCompat="@drawable/ic_baseline_renew_24" />
 
     <TextView
         android:id="@+id/firstHistory"
@@ -108,9 +106,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:text="@string/firstHistory"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clear" />
+        app:layout_constraintTop_toBottomOf="@id/result2" />
 
     <TextView
         android:id="@+id/secondHistory"
@@ -118,7 +115,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:text="@string/secondHistory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/firstHistory" />
 
@@ -128,7 +124,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:text="@string/thirdHistory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/secondHistory" />
 
@@ -138,7 +133,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:text="@string/fourthHistory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/thirdHistory" />
 
@@ -148,22 +142,27 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:text="@string/fifthHistory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fourthHistory" />
 
-    <Button
+    <ImageButton
         android:id="@+id/clearHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/red"
-        android:text="@string/clearHistory"
-        android:lines="2"
-        android:textColor="#000000"
+        android:background="@null"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fifthHistory" />
+        app:layout_constraintStart_toEndOf="@id/calculate"
+        app:layout_constraintTop_toBottomOf="@id/result2"
+        app:srcCompat="@drawable/ic_baseline_trash_24" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end|center"
+        android:text="Темная/Светлая тема"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
